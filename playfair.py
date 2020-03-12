@@ -8,7 +8,9 @@ alphabetArray=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','
 
 altGrid=[]
 
+Message='Hey how are you'
 
+# TODO check if word is an Isograms
 KeyWord='lizard'
 
 resultArr=list(KeyWord.upper().strip())
@@ -39,4 +41,23 @@ for i in resultArr:
 altGrid.append(subArr)
 
 
-print(altGrid)
+# print(altGrid)
+
+# remove spaces from message
+Message=list(''.join(Message.upper().split()))
+
+# TODO add an X at the end of the list if the number of letters is odd
+
+def GridEncode(First,Second):
+    return First,Second
+
+# Iterate the Message in pairs
+for i in range(0,len(Message),2):
+    # remove repeating letters
+    if(Message[i] == Message[i+1]):
+        Message[i+1]='X'
+    # Encode message in pairs
+    Message[i],Message[i+1]=GridEncode(Message[i],Message[i+1])
+
+
+print(Message)
