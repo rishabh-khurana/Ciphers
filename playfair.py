@@ -4,7 +4,7 @@
              ['Q','R','S','T','U'],
              ['V','W','X','Y','Z']]'''
 
-alphabetArray=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+alphabetArray=['A','B','C','D','E','F','G','H','I','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
 altGrid=[]
 
@@ -48,8 +48,38 @@ Message=list(''.join(Message.upper().split()))
 
 # TODO add an X at the end of the list if the number of letters is odd
 
+for i in altGrid:
+    print(i)
+
+# horizontally opposite corners
 def GridEncode(First,Second):
-    return First,Second
+    firstPos=[]
+    secPos=[]
+    for i in range(5):
+        for j in range(5):
+            if altGrid[i][j] == First:
+                firstPos=[i,j]
+                break
+
+    for i in range(5):
+        for j in range(5):  
+            if altGrid[i][j] == Second:
+                secPos=[i,j]
+                break
+    
+    secPos[1],firstPos[1]=firstPos[1],secPos[1]
+
+    print(firstPos)
+    print(secPos)
+    print('###########')
+
+    return altGrid[firstPos[0]][firstPos[1]],altGrid[secPos[0]][secPos[1]]
+    
+    # print(firstPos)
+    # print(secPos)
+    # print('###########')
+    # # for the same subgrid
+    # return First,Second
 
 # Iterate the Message in pairs
 for i in range(0,len(Message),2):
