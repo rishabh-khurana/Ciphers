@@ -18,6 +18,36 @@ advArray=['A','B','C','D','E','F',
             'Y','Z','_','.','?','!',
             '$','@','/','|','~','-']
 
+def MakeGrid(Keyword):
+
+    resultArr=list(Keyword.upper().strip())
+    # Make new array with Keyword and advArray
+    for letter in advArray:
+        if len(resultArr) < 36:
+            if letter not in resultArr:
+                resultArr.append(letter)
+        else:
+            break
+    
+    # Make a 6x6 grid with new array
+    altGrid=[]
+    subArr=[]
+    count=0
+    for i in resultArr:
+        if count<6: 
+            subArr.append(i)
+            count=count+1
+        else:
+            altGrid.append(subArr)
+            count=0
+            subArr=[]
+            subArr.append(i)
+            count=count+1
+
+    altGrid.append(subArr)
+
+    return altGrid
+
 
 # takes any two letters and ecodes it according to the 6x6 Grid
 def GridEncode(First,Second,altGrid):
@@ -61,6 +91,57 @@ def GridEncode(First,Second,altGrid):
             secPos[0] = 0
         else:
             secPos[0] = secPos[0] + 1
+
+    # diff row and column
+    else:
+        secPos[1],firstPos[1]=firstPos[1],secPos[1]
+
+    return altGrid[firstPos[0]][firstPos[1]],altGrid[secPos[0]][secPos[1]]
+
+
+# reverse engineer GridEncode
+def GridDecode(First,Second,altGrid):
+    firstPos=[]
+    secPos=[]
+    for i in range(6):
+        for j in range(6):
+            if altGrid[i][j] == First:
+                firstPos=[i,j]
+                break
+
+    for i in range(6):
+        for j in range(6):  
+            if altGrid[i][j] == Second:
+                secPos=[i,j]
+                break
+    
+    # same row         
+    if firstPos[0] == secPos[0]:
+        if (firstPos[1] - 1 < 0):
+            # wrap around
+            firstPos[1] = 5
+        else: 
+            firstPos[1] = firstPos[1] - 1
+        
+        if (secPos[1] - 1 < 0):
+            # wrap around
+            secPos[1] = 5
+        else:
+            secPos[1] = secPos[1] - 1
+
+    # same column
+    elif firstPos[1] == secPos[1]:
+        if (firstPos[0] - 1 < 0):
+            # wrap around
+            firstPos[0] = 5
+        else: 
+            firstPos[0] = firstPos[0] - 1
+        
+        if (secPos[0] - 1 < 0):
+            # wrap around
+            secPos[0] = 5
+        else:
+            secPos[0] = secPos[0] - 1
 
     # diff row and column
     else:

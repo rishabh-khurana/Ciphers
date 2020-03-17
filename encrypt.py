@@ -1,36 +1,14 @@
-from utils import advArray,GridEncode
+from utils import MakeGrid,GridEncode
 
 # Keyword must be an Isogram
 
 def EncryptPlayfair(Message,Keyword):
-    resultArr=list(Keyword.upper().strip())
-    # Make new array with Keyword and advArray
-    for letter in advArray:
-        if len(resultArr) < 36:
-            if letter not in resultArr:
-                resultArr.append(letter)
-        else:
-            break
     
-    # Make a 6x6 grid with new array
-    altGrid=[]
-    subArr=[]
-    count=0
-    for i in resultArr:
-        if count<6: 
-            subArr.append(i)
-            count=count+1
-        else:
-            altGrid.append(subArr)
-            count=0
-            subArr=[]
-            subArr.append(i)
-            count=count+1
+    altGrid=MakeGrid(Keyword)
 
-    altGrid.append(subArr)
-
-    for i in altGrid:
-        print(i)
+    # to view grid
+    # for i in altGrid:
+    #     print(i)
 
     # remove spaces from message and convert it to a list
     Message=list(''.join(Message.upper().split()))
@@ -48,5 +26,5 @@ def EncryptPlayfair(Message,Keyword):
     return ''.join(Message)
 
 if __name__ == "__main__":
-    #print(EncryptPlayfair('Hey how are you','lizard'))
-    print(EncryptPlayfair('balloon','lizard'))
+    print(EncryptPlayfair('Hey how are you','lizard'))
+    #print(EncryptPlayfair('balloon','lizard'))
