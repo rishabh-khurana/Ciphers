@@ -18,6 +18,12 @@ advArray=['A','B','C','D','E','F',
             'Y','Z','_','.','?','!',
             '$','@','/','|','~','-']
 
+# for hill Cipher
+KeyMatrix=[[1,2],
+           [3,4]]
+
+alphabet=list('abcdefghijklmnopqrstuvwxyz'.upper())
+
 def MakeGrid(Keyword):
 
     resultArr=list(Keyword.upper().strip())
