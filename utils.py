@@ -19,8 +19,8 @@ advArray=['A','B','C','D','E','F',
             '$','@','/','|','~','-']
 
 # for hill Cipher
-KeyMatrix=[[1,2],
-           [3,4]]
+KeyMatrix=[[3,3],
+           [2,5]]
 
 alphabet=list('abcdefghijklmnopqrstuvwxyz'.upper())
 
