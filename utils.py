@@ -154,3 +154,12 @@ def GridDecode(First,Second,altGrid):
         secPos[1],firstPos[1]=firstPos[1],secPos[1]
 
     return altGrid[firstPos[0]][firstPos[1]],altGrid[secPos[0]][secPos[1]]
+
+    
+def ConverToHex(binary):
+    res="0x"
+    hexList = [hex(int(binary[i:i+8], 2))[2:] for i in range(0, len(binary),8)]
+    for hexa in hexList:
+        if len(hexa)==1: hexa ="0"+hexa
+        res = res + hexa
+    return res
