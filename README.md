@@ -1,4 +1,4 @@
-# Advanced Playfair Cipher Application
+# Cipher Application
 
 ## About
 
