@@ -33,6 +33,19 @@ Notice the use of special character in the cryptic message this is because the n
 
 Another Cipher mechanism that I find quite interesting is the simple implementation of the Hill Cipher which was invented by Lester S. Hill in 1929 using principles of linear algebra. In the encryption process we use a 2x2 matrix with very unique properties which is used as a secret. The inverse modulo 26 of this matrix is used as the key to decrypt the cipher. The way this encryption process works is, we divide the message in blocks of 2s, convert it into ASCII code and multiply with the 'secret matrix'. We decrypt the message using the inverse of this matrix and multiply it with encrypted message the same way(in blocks of 2 letters at a time) and we get back our original message. The only drawback in this method is to find a key matrix that has a inverse modulo of 26.
 
-The `hill.py` file uses the key matrix from `utils.py` and the `encrypt()` function takes in the message and the key Matrix and gives the encrypted message as the output. However, this method uses Block encryption without shuffling which might be a vulnerability.
+The `hill.py` file uses the key matrix from `utils.py` and the `encrypt()` function takes in the message and the key Matrix and gives the encrypted message as the output. However, this method uses Block encryption without shuffling the encrypted blocks which is a vulnerability.
 
 
+```
+$ python3
+Python 3.6.9 (default, Nov  7 2019, 10:44:02) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from hill import encrypt,decrypt
+>>> from utils import KeyMatrix
+>>> encrypt('I am Kryptos',KeyMatrix)
+'DWTCYEDBXU'
+>>> decrypt('DWTCYEDBXU',KeyMatrix)
+'IAMKRYPTOS'
+
+```

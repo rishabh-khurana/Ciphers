@@ -15,8 +15,6 @@ def encrypt(Message,Key=KeyMatrix):
     # covert the matrix to numpy array
     Key=np.array(Key)
 
-    print(Key)
-
     # encode message as per key matrix
     for i in range(0,len(Message),2):
         sub=[Message[i],Message[i+1]]
