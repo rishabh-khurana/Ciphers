@@ -52,3 +52,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 ### Feistel Cipher
 
 The Feistel network is the base framework for many Cipher mechanisms like the DES and 3-DES which allows us to select a typical function called the round function and plug it in the framework to result in a completely new/distinct encryption method depending on the number of rounds of encryption and the function selected. A unique property of the Feistel network is that the decryption mechanism is not the reversal of the encryption method, but it is exactly the same, only the keys are used in the reversed order to decrypt the message. This network can effectively reverse any function used as the round function in the encryption process - which even includes all hash functions! The principle behind this is quite basic - if a number is xor'ed with itself odd number of times it will result in the number.  This [video](https://www.youtube.com/watch?v=FGhj3CGxl8I&t=239s) explains the concept perfectly.
+
+<img src="/feistel.png">
+
+The `Encrypt()` and `Descrypt()` functions in the `feistel.py` file work exactly the same way (apart from some preprocessing). However, while using these functions the order of the keys entered in the latter is reversed so as to reverse the whole encryption process.
+
+
