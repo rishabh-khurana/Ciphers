@@ -1,6 +1,14 @@
 from utils import ConverToHex
 import random
 
+def ConvertToString(Binary):
+    resultToChar = [chr(int(Binary[i:i+8], 2)) for i in range(0, len(Binary),8)]
+    resultText=""
+    for letter in resultToChar:
+        resultText = resultText+letter
+    return resultText
+
+
 def GenerateKey(Length):
     KeyList=[]
     for _ in range(Length):
@@ -87,28 +95,19 @@ def Decrypt(Message,KEY1,KEY2):
 
     L4 = R3
     R4 = L3
+    
     return L4+R4
 
 
 
 if __name__=='__main__':
 
-    Message='himynameisrishabandilikeers'
+    Message='I am kryptos'
 
     Result,KEY1,KEY2=Encyrpt(Message)
 
-    resultToChar = [chr(int(Result[i:i+8], 2)) for i in range(0, len(Result),8)]
-    resultText=""
-    for letter in resultToChar:
-        resultText = resultText+letter
+    print(Result)
     
-    print(resultText)
-
     res=Decrypt(Result,KEY2,KEY1)
 
-    resultToChar = [chr(int(res[i:i+8], 2)) for i in range(0, len(res),8)]
-    resultText=""
-    for letter in resultToChar:
-        resultText = resultText+letter
-
-    print(resultText)
+    print(ConvertToString(res))
