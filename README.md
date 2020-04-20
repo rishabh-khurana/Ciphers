@@ -6,6 +6,19 @@
 
 The Cipher Application is a python based project that allows users to encrpyt/decrypt Messages using popular cipher mechanisms used in the past and enables the user to understand the implementation of the encrypting/decrypting process.
 
+### Setup process
+
+
+1.Run the following command to install all packages
+
+`pip install -r requirements.txt`
+
+### Run the App
+
+2.Run the following command to run the app inside the project folder
+
+`python3 main.py`
+
 ## Project
 
 ### Playfair Cipher
