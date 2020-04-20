@@ -1,5 +1,7 @@
 # Cipher Application
 
+![The Cipher Application](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 ## About
 
 The Cipher Application is a python based project that allows users to encrpyt/decrypt Messages using popular cipher mechanisms used in the past and enables the user to understand the implementation of the encrypting/decrypting process.
