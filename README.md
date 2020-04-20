@@ -1,6 +1,6 @@
 # Cipher Application
 
-![The Cipher Application](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![The Cipher Application](https://j.gifs.com/ZYnmgg.gif)
 
 ## About
 
