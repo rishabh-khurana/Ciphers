@@ -19,7 +19,7 @@ dask==2.2.0
 decorator==4.4.0
 defer==1.0.6
 defusedxml==0.6.0
-distributed==2.2.0
+distributed==2021.10.0
 distro-info===0.18ubuntu0.18.04.1
 egcd==0.0.1.1
 entrypoints==0.3
